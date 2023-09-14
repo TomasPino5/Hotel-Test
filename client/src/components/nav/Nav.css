@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    /* border: 1px solid red; */
+    padding: 30px;
+    /* flex-wrap: wrap; */
+    background-color: #fff;
+}
+
+.title-description {
+    display: flex;
+    flex-direction: column;
+    margin-right: 90px;
+    text-align: center;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(82, 82, 141);
+}
+
+.ul {
+    list-style: none;
+}
+
+.li {
+    display: inline;
+    margin-right: 40px;
+}

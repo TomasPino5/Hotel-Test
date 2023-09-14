@@ -6,7 +6,7 @@ import Location from "./components/location/Location";
 import Contact from "./components/contact/Contact";
 import Bookings from "./components/bookings/Bookings";
 import Nav from "./components/nav/Nav";
-import Footer from "./components/footer/Footer";
+// import Footer from "./components/footer/Footer";
 import Error from "./components/error/error";
 
 function App() {
@@ -14,9 +14,9 @@ function App() {
   const { pathname } = useLocation()
 
   return (
-    <div>
+    <>
+      {pathname !== "*" && <Nav />}
       <Routes>
-        {/* {pathname !== "*" && <Nav />} */}
         <Route path="/" element={<Home />} />
         <Route path="/actividades" element={<Activities />} />
         <Route path="/habitaciones" element={<Rooms />} />
@@ -26,7 +26,7 @@ function App() {
         {/* {pathname !== "*" && <Footer />} */}
         <Route path="*" element={<Error />} />
       </Routes>
-    </div>
+    </>
   )
 }
 
