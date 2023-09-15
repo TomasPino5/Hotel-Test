@@ -1,4 +1,4 @@
-import './Carousel.css'
+import styles from './Carousel.module.css'
 import { useState, useEffect } from 'react';
 import img1 from '../../img/img1.jpg'
 import img2 from '../../img/img2.jpg'
@@ -15,21 +15,15 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="carousel">
+    <div className={styles.carousel}>
       {images.map((image, index) => (
         <img
           key={index}
           src={image}
           alt={`Image${index}`}
-          className={index === currentIndex ? 'active' : 'inactive'}
+          className={index === currentIndex ? styles.active : styles.inactive}
         />
       ))}
-      <button 
-        type='submit' 
-        className='button' 
-      >
-        RESERVAR
-      </button>
     </div>
   );
 };

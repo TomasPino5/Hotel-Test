@@ -4,11 +4,13 @@
     justify-content: center;
     /* border: 1px solid red; */
     padding: 30px;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     background-color: #fff;
+    z-index: 1;
+    /* border-bottom: 1px solid black; */
 }
 
-.title-description {
+.titleDescription {
     display: flex;
     flex-direction: column;
     margin-right: 90px;
@@ -28,4 +30,19 @@
 .li {
     display: inline;
     margin-right: 40px;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+}
+
+.link:hover {
+    color: rgb(127, 126, 126);
+}
+
+.selected {
+    text-decoration: none;
+    color: rgb(127, 126, 126);
 }
