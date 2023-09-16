@@ -34,7 +34,7 @@
     /* align-items: center; */
     justify-content: center;
     text-align: center;
-    margin-top: 90px;
+    margin-top: 150px;
 }
 
 .title {
@@ -65,4 +65,16 @@
 .infoButton:hover {
     background-color: black;
     color: #fff;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 150px;
 }
