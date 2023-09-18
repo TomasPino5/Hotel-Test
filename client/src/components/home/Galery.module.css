@@ -1,0 +1,13 @@
+.galery {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    gap: 15px;
+    margin-left: -160px;
+    overflow-x: hidden;
+    margin-top: 100px;
+}
+
+.item {
+    height: 350px;
+    width: 550px;
+}
