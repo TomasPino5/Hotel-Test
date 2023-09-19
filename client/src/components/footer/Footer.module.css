@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 70px 30px 70px 30px;
+    flex-wrap: wrap;
+    background-color: black;
+    color: white;
+}
+
+.container > div {
+    margin-right: 100px;
+}
+
+.titleDescription {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.description {
+    font-size: 20px;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+}
+
+.social {
+    display: flex;
+    text-align: center;
+}
+
+.icon1 {
+    color: inherit;
+    position: absolute;
+    margin-left: 10px;
+    padding-top: 3.5px;
+}
+
+.icon2 {
+    color: inherit;
+    position: absolute;
+    margin-left: 35px;
+    padding-top: 3.5px;
+}
+
+.icon3 {
+    color: inherit;
+    position: absolute;
+    margin-left: 60px;
+    padding-top: 3.5px;
+}
+
+.made {
+    position: absolute;
+    margin: 215px 0 0 150px;
+}
+
+.heart {
+    transform: translateY(1.8px);
+    cursor: text;
+}
+
+.heart:hover {
+    color: red;
+}
+
+.tomas {
+    text-decoration: none;
+    color: inherit;
+}
+
+.p {
+    font-size: 12px;
+}

@@ -6,7 +6,7 @@ import Location from "./components/location/Location";
 import Contact from "./components/contact/Contact";
 import Bookings from "./components/bookings/Bookings";
 import Nav from "./components/nav/Nav";
-// import Footer from "./components/footer/Footer";
+import Footer from "./components/footer/Footer";
 import Error from "./components/error/error";
 
 function App() {
@@ -23,9 +23,9 @@ function App() {
         <Route path="/ubicación" element={<Location />} />
         <Route path="/contacto" element={<Contact />} />
         <Route path="/reservas" element={<Bookings />} />
-        {/* {pathname !== "*" && <Footer />} */}
         <Route path="*" element={<Error />} />
       </Routes>
+      {pathname !== "*" && <Footer />}
     </>
   )
 }
