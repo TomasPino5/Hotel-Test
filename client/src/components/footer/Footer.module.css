@@ -44,11 +44,19 @@
     padding-top: 3.5px;
 }
 
+.icon1:hover {
+    color: rgb(188, 42, 141);
+}
+
 .icon2 {
     color: inherit;
     position: absolute;
     margin-left: 35px;
     padding-top: 3.5px;
+}
+
+.icon2:hover {
+    color: rgb(24, 119, 242);
 }
 
 .icon3 {
@@ -58,6 +66,10 @@
     padding-top: 3.5px;
 }
 
+.icon3:hover {
+    color: rgb(29, 161, 242);
+}
+
 .made {
     position: absolute;
     margin: 215px 0 0 150px;
@@ -65,7 +77,7 @@
 
 .heart {
     transform: translateY(1.8px);
-    cursor: text;
+    cursor: none;
 }
 
 .heart:hover {
@@ -75,6 +87,10 @@
 .tomas {
     text-decoration: none;
     color: inherit;
+}
+
+.tomas:hover {
+    color: rgb(90, 87, 87);
 }
 
 .p {

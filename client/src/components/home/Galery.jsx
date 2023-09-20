@@ -11,22 +11,47 @@ import galery9 from '../../img/galery/galery9.webp'
 import galery10 from '../../img/galery/galery10.jpg'
 import galery11 from '../../img/galery/galery11.jpg'
 import galery12 from '../../img/galery/galery12.jpg'
+import { Link } from 'react-router-dom';
 
 const Galery = () => {
     return (
         <div className={styles.galery}>
-            <img className={styles.item} src={galery1} alt="galery1" />
-            <img className={styles.item} src={galery2} alt="galery2" />
-            <img className={styles.item} src={galery3} alt="galery3" />
-            <img className={styles.item} src={galery4} alt="galery4" />
-            <img className={styles.item} src={galery5} alt="galery5" />
-            <img className={styles.item} src={galery6} alt="galery6" />
-            <img className={styles.item} src={galery7} alt="galery7" />
-            <img className={styles.item} src={galery8} alt="galery8" />
-            <img className={styles.item} src={galery9} alt="galery9" />
-            <img className={styles.item} src={galery10} alt="galery10" />
-            <img className={styles.item} src={galery11} alt="galery11" />
-            <img className={styles.item} src={galery12} alt="galery12" />
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery1} alt="galery1" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery2} alt="galery2" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery3} alt="galery3" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery4} alt="galery4" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery5} alt="galery5" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery6} alt="galery6" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery7} alt="galery7" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery8} alt="galery8" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery9} alt="galery9" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery10} alt="galery10" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery11} alt="galery11" />
+            </Link>
+            <Link to='/habitaciones'>
+                <img className={styles.item} src={galery12} alt="galery12" />
+            </Link>
         </div>
     )
 }
