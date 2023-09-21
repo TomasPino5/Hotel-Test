@@ -42,6 +42,7 @@
     position: absolute;
     margin-left: 10px;
     padding-top: 3.5px;
+    transition: all 0.5s;
 }
 
 .icon1:hover {
@@ -53,6 +54,7 @@
     position: absolute;
     margin-left: 35px;
     padding-top: 3.5px;
+    transition: all 0.5s;
 }
 
 .icon2:hover {
@@ -64,6 +66,7 @@
     position: absolute;
     margin-left: 60px;
     padding-top: 3.5px;
+    transition: all 0.5s;
 }
 
 .icon3:hover {
@@ -78,6 +81,7 @@
 .heart {
     transform: translateY(1.8px);
     cursor: none;
+    transition: all 0.5s;
 }
 
 .heart:hover {
@@ -87,6 +91,7 @@
 .tomas {
     text-decoration: none;
     color: inherit;
+    transition: all 0.5s;
 }
 
 .tomas:hover {

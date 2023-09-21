@@ -3,9 +3,23 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+    margin-bottom: 70px;
+}
+
+.activities {
+    font-size: 43px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.subtitle {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
 .text {
-    width: 500px;
+    width: 700px;
     text-align: left;
+    font-size: 14px;
 }

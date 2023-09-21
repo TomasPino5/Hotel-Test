@@ -10,6 +10,7 @@
 .item {
     height: 350px;
     width: 550px;
+    transition: all 0.2s;
 }
 
 .item:hover {
