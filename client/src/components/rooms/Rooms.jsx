@@ -12,6 +12,7 @@ import rooms10 from '../../img/rooms/rooms10.webp'
 import rooms11 from '../../img/rooms/rooms11.jpeg'
 import rooms12 from '../../img/rooms/rooms12.jpg'
 import { FaChevronLeft, FaChevronRight, FaShower, FaWifi, FaTv, FaCircle } from 'react-icons/fa';
+import { GiSnowflake1 } from 'react-icons/gi';
 import { useState } from 'react'
 
 const Rooms = () => {
@@ -113,10 +114,13 @@ const Rooms = () => {
                             />
                         ))}
                         <FaChevronLeft className={styles.arrowLeft} onClick={prev1} />
+                        <div className={styles.backgroundLeftArrow}></div>
                         <FaChevronRight className={styles.arrowRight} onClick={next1} />
+                        <div className={styles.backgroundRightArrow}></div>
                         <FaCircle className={currentIndex1 === 0 ? styles.circle1Enabled : styles.circle1}/>
                         <FaCircle className={currentIndex1 === 1 ? styles.circle2Enabled : styles.circle2}/>
                         <FaCircle className={currentIndex1 === 2 ? styles.circle3Enabled : styles.circle3}/>
+                        <div className={styles.backgroundCircle}></div>
                         <div className={styles.data}>
                             <div className={styles.iconsContainer}>
                                 <p className={styles.roomTitle}>01 - Nombre1</p>
@@ -142,17 +146,20 @@ const Rooms = () => {
                             />
                         ))}
                         <FaChevronLeft className={styles.arrowLeft} onClick={prev2} />
+                        <div className={styles.backgroundLeftArrow}></div>
                         <FaChevronRight className={styles.arrowRight} onClick={next2} />
+                        <div className={styles.backgroundRightArrow}></div>
                         <FaCircle className={currentIndex2 === 0 ? styles.circle1Enabled : styles.circle1}/>
                         <FaCircle className={currentIndex2 === 1 ? styles.circle2Enabled : styles.circle2}/>
                         <FaCircle className={currentIndex2 === 2 ? styles.circle3Enabled : styles.circle3}/>
+                        <div className={styles.backgroundCircle}></div>
                         <div className={styles.data}>
                             <div className={styles.iconsContainer}>
                                 <p className={styles.roomTitle}>02 - Nombre2</p>
                                 <div className={styles.icons}>
                                     <FaShower className={styles.icon} />
                                     <FaWifi className={styles.icon} />
-                                    <FaTv className={styles.icon} />
+                                    <GiSnowflake1 className={styles.icon} />
                                 </div>
                             </div>
                             <p className={styles.roomDescription}>
@@ -171,10 +178,13 @@ const Rooms = () => {
                             />
                         ))}
                         <FaChevronLeft className={styles.arrowLeft} onClick={prev3} />
+                        <div className={styles.backgroundLeftArrow}></div>
                         <FaChevronRight className={styles.arrowRight} onClick={next3} />
+                        <div className={styles.backgroundRightArrow}></div>
                         <FaCircle className={currentIndex3 === 0 ? styles.circle1Enabled : styles.circle1}/>
                         <FaCircle className={currentIndex3 === 1 ? styles.circle2Enabled : styles.circle2}/>
                         <FaCircle className={currentIndex3 === 2 ? styles.circle3Enabled : styles.circle3}/>
+                        <div className={styles.backgroundCircle}></div>
                         <div className={styles.data}>
                             <div className={styles.iconsContainer}>
                                 <p className={styles.roomTitle}>03 - Nombre3</p>
@@ -200,17 +210,20 @@ const Rooms = () => {
                             />
                         ))}
                         <FaChevronLeft className={styles.arrowLeft} onClick={prev4} />
+                        <div className={styles.backgroundLeftArrow}></div>
                         <FaChevronRight className={styles.arrowRight} onClick={next4} />
+                        <div className={styles.backgroundRightArrow}></div>
                         <FaCircle className={currentIndex4 === 0 ? styles.circle1Enabled : styles.circle1}/>
                         <FaCircle className={currentIndex4 === 1 ? styles.circle2Enabled : styles.circle2}/>
                         <FaCircle className={currentIndex4 === 2 ? styles.circle3Enabled : styles.circle3}/>
+                        <div className={styles.backgroundCircle}></div>
                         <div className={styles.data}>
                             <div className={styles.iconsContainer}>
                                 <p className={styles.roomTitle}>04 - Nombre4</p>
                                 <div className={styles.icons}>
                                     <FaShower className={styles.icon} />
                                     <FaWifi className={styles.icon} />
-                                    <FaTv className={styles.icon} />
+                                    <GiSnowflake1 className={styles.icon} />
                                 </div>
                             </div>
                             <p className={styles.roomDescription}>

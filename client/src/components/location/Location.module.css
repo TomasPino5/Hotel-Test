@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.title {
+    text-align: center;
+    font-size: 43px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.description {
+    text-align: left;
+    width: 700px;
+    font-size: 14px;
+}
