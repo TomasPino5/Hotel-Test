@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 70px;
+    flex-direction: column;
 }
 
 .title {
@@ -13,6 +14,34 @@
 }
 
 .description {
+    text-align: left;
+    width: 700px;
+    font-size: 14px;
+    margin-bottom: 50px;
+}
+
+.content {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.img {
+    width: 550px;
+    height: 450px;
+}
+
+.arrive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arriveTitle {
+    margin-bottom: 10px;
+    font-size: 35px;
+}
+
+.arriveDescription {
     text-align: left;
     width: 700px;
     font-size: 14px;

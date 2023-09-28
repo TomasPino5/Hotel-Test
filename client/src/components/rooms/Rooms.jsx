@@ -93,7 +93,7 @@ const Rooms = () => {
     return (
         <div className={styles.container}>
             <div className={styles.headContainer}>
-                <h1 className={styles.title}>Habitaciones</h1>
+                <h1 className={styles.title}>HABITACIONES</h1>
                 <p className={styles.description}>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem velit quod voluptatem. Mollitia ipsam itaque autem dolores culpa voluptatibus illum, perferendis excepturi cupiditate necessitatibus unde odit amet, aspernatur accusantium animi!
                 </p>

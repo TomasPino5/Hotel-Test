@@ -6,7 +6,7 @@ const Activities = () => {
         <>
             <div className={styles.container}>
                 <div className={styles.reasons}>
-                    <h1 className={styles.activities}>Actividades</h1>
+                    <h1 className={styles.activities}>ACTIVIDADES</h1>
                     <h2 className={styles.subtitle}>Razones para venir a Buenos Aires</h2>
                     <p className={styles.text}>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam corporis ea inventore assumenda illum ut, placeat maxime adipisci. Rem aperiam veniam iure sequi officia nulla quia. Mollitia blanditiis vitae ipsa.

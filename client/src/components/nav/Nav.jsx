@@ -10,10 +10,10 @@ const Nav = () => {
             <nav className={styles.container}>
                 <div className={styles.titleDescription}>
                     <div className={styles.title}>
-                        <p>HENDOKU YAKU</p>
+                        <p>HOTEL PRUEBA</p>
                     </div>
                     <div className={styles.description}>
-                        <p>Hostel Mendoza</p>
+                        <p>Buenos Aires</p>
                     </div>
                 </div>
                 <div className={styles.listaContainer}>
@@ -47,7 +47,7 @@ const Nav = () => {
                                 to="/ubicacion" 
                                 className={pathname === '/ubicacion' ? styles.selected : styles.link}
                                 >
-                                    Ubicacion
+                                    Ubicación
                             </Link>
                         </li>
                         <li className={styles.li}>
