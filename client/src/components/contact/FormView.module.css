@@ -14,9 +14,30 @@
     font-size: 15px;
 }
 
+.inputError {
+    margin-top: 20px;
+    border: 1px solid rgb(214, 27, 27);
+    outline: none;
+    height: 30px;
+    width: 500px;
+    padding-left: 5px;
+    font-size: 15px;
+}
+
 .textarea {
     margin-top: 20px;
     border: 1px solid black;
+    outline: none;
+    resize: none;
+    height: 200px;
+    width: 500px;
+    padding: 3px 0 0 5px;
+    font-size: 15px;
+}
+
+.textareaError {
+    margin-top: 20px;
+    border: 1px solid rgb(214, 27, 27);
     outline: none;
     resize: none;
     height: 200px;

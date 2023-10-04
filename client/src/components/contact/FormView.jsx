@@ -17,41 +17,47 @@ const FormView = () => {
         message: ""
     })
 
-    const validate = () => {
+    const validate = (event) => {
         let isValid = true;
-        let errors = {};
 
-        if (form.name.trim() === "") {
-            errors.name = "El nombre es obligatorio";
+        const newErrors = { ...errors };
+    
+        if (event.target.name === "name" && form.name.trim() === "") {
+            newErrors.name = "El nombre es obligatorio";
             isValid = false;
-        }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-            errors.email = "Correo electrónico inválido";
+        } else if (event.target.name === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+            newErrors.email = "Correo electrónico inválido";
             isValid = false;
-        }
-
-        const phoneRegex = /^[0-9]{10}$/;
-        if (!phoneRegex.test(form.phone)) {
-            errors.phone = "Número de teléfono inválido";
+        } else if (event.target.name === "phone" && !/^[0-9]{10}$/.test(form.phone)) {
+            newErrors.phone = "Número de teléfono inválido";
             isValid = false;
+        } else if (event.target.name === "message" && form.message.trim() === "") {
+            newErrors.message = "El mensaje es obligatorio";
+            isValid = false;
+        } else {
+            newErrors[event.target.name] = "";
         }
-
-        setErrors(errors);
+    
+        setErrors(newErrors);
+        
         return isValid;
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
     
         if (validate()) {
-            // Envía el formulario
-            console.log("Formulario válido, enviar datos:", form);
-            // Aquí puedes enviar los datos a tu API o realizar otras operaciones necesarias
+            alert("Formulario válido, enviar datos:", form);
+            // Aquí debo enviar los datos al email
         } else {
-            console.log("Formulario inválido, corrige los errores antes de enviar.");
+            alert("Formulario inválido, corrige los errores antes de enviar.");
         }
     };
+
+    const handleChange = (event) => {
+        setForm({ ...form, name: event.target.value });
+    }
+
 
     return (
         <>
@@ -60,37 +66,43 @@ const FormView = () => {
                 <input 
                     type="text" 
                     placeholder='Nombre y Apellido' 
+                    name="name"
                     value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className={styles.input} 
+                    onChange={handleChange}
+                    onBlur={validate}
+                    className={!errors.name ? styles.input : styles.inputError} 
                 />
                 {errors.name && <span className={styles.error}>{errors.name}</span>}
 
                 <input 
                     type="text" 
                     placeholder='Email' 
+                    name="email"
                     value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className={styles.input} 
+                    onChange={(event) => setForm({ ...form, email: event.target.value })}
+                    onBlur={validate}
+                    className={!errors.email ? styles.input : styles.inputError} 
                 />
                 {errors.email && <span className={styles.error}>{errors.email}</span>}
 
                 <input 
                     type="text" 
                     placeholder='Teléfono' 
+                    name="phone"
                     value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className={styles.input} 
+                    onChange={(event) => setForm({ ...form, phone: event.target.value })}
+                    onBlur={validate}
+                    className={!errors.phone ? styles.input : styles.inputError} 
                 />
                 {errors.phone && <span className={styles.error}>{errors.phone}</span>}
 
                 <textarea 
-                    name="textarea" 
-                    id="textarea" 
+                    name="message" 
                     placeholder='Escribe tu mensaje aqui...' 
                     value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className={styles.textarea} 
+                    onChange={(event) => setForm({ ...form, message: event.target.value })}
+                    onBlur={validate}
+                    className={!errors.message ? styles.textarea : styles.textareaError} 
                 />
                 {errors.message && <span className={styles.error}>{errors.message}</span>}
 
