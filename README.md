@@ -1,1 +1,1 @@
-# hostel-hendoku-yaku
+# hotel-test
