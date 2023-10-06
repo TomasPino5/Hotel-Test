@@ -15,14 +15,12 @@ const FormView = () => {
     const [errors, setErrors] = useState({
         name: "",
         email: "",
-        phone: "",
         message: ""
     })
 
-    const [phone, setPhone] = useState('');
-
     const handlePhoneChange = (value) => {
-        setPhone(value);
+        setForm({ ...form, [form.phone]: value });
+        console.log(form);
     };
 
     const validate = (event) => {
@@ -32,15 +30,28 @@ const FormView = () => {
 
         const newErrors = { ...errors };
     
-        if (name === "name" && form.name.trim() === "") {
-            newErrors.name = "El nombre es obligatorio";
-            isValid = false;
+        if (name === "name" && !/^[a-zA-Z\s]{4,50}$/.test(form.name)) {
+            if (form.name.length < 4) {
+                newErrors.name = "El nombre y apellido es obligatorio";
+                isValid = false;
+            } else if (form.name.length > 50) {
+                newErrors.name = "El nombre y apellido es demasiado largo";
+                isValid = false;
+            }
         } else if (name === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
             newErrors.email = "Correo electrónico inválido";
             isValid = false;
-        } else if (name === "message" && form.message.trim() === "") {
-            newErrors.message = "El mensaje es obligatorio";
-            isValid = false;
+        } else if (name === "message" && !/^.{10,1000}$/.test(form.message)) {
+            if (form.message.length === 0) {
+                newErrors.message = "El mensaje es obligatorio";
+                isValid = false;
+            } else if (form.message.length > 0 && form.message.length < 11) {
+                newErrors.message = "El mensaje es demasiado corto";
+                isValid = false;
+            } else if (form.message.length > 1000) {
+                newErrors.message = "El mensaje es demasiado largo, maximo 1000 caracteres";
+                isValid = false;
+            }
         } else {
             newErrors[name] = "";
         }
@@ -57,20 +68,21 @@ const FormView = () => {
         
         const newErrors0 = { ...errors };
 
-        if (name === "name" && value.trim() !== "") {
+        if (name === "name" && /^[a-zA-Z\s]{4,50}$/.test(value)) {
             newErrors0.name = "";
         } else if (name === "email" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
             newErrors0.email = "";
-        } else if (name === "message" && value.trim() !== "") {
+        } else if (name === "message" && /^.{10,1000}$/.test(value)) {
             newErrors0.message = "";
         }
+        console.log(form);
         setErrors(newErrors0);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        if (!validate(event) || form.name.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) || form.message.trim() === "") {
+        if (!validate(event) || !/^[a-zA-Z\s]{4,50}$/.test(form.name) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) || !/^.{10,1000}$/.test(form.message)) {
             alert("Formulario inválido, corrige los errores antes de enviar.");
         } else {
             alert("Formulario válido, enviar datos:", form);
@@ -107,10 +119,11 @@ const FormView = () => {
 
                 <PhoneInput
                     country={'ar'}
-                    value={phone}
+                    value={form.phone}
                     onChange={handlePhoneChange}
                     className={styles.inputPhone}
                     placeholder=""
+                    name="phone"
                 />
 
                 {/* <input 
@@ -126,7 +139,7 @@ const FormView = () => {
 
                 <textarea 
                     name="message" 
-                    placeholder='Escribe tu mensaje aqui...' 
+                    placeholder='Escriba su mensaje aquí...' 
                     value={form.message}
                     onChange={handleChange}
                     onBlur={validate}
