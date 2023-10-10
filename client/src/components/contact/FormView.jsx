@@ -2,6 +2,7 @@ import styles from './FormView.module.css'
 import { useState } from 'react';
 import PhoneInput from 'react-phone-input-2'
 import './stylePhone.css'
+import axios from 'axios';
 
 const FormView = () => {
 
@@ -39,8 +40,13 @@ const FormView = () => {
                 isValid = false;
             }
         } else if (name === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-            newErrors.email = "Correo electrónico inválido";
-            isValid = false;
+            if (form.email.length > 0) {
+                newErrors.email = "Correo electrónico inválido";
+                isValid = false;
+            } else {
+                newErrors.email = "El correo electrónico es obligatorio";
+                isValid = false;
+            }
         } else if (name === "message" && !/^.{10,1000}$/.test(form.message)) {
             if (form.message.length === 0) {
                 newErrors.message = "El mensaje es obligatorio";
@@ -79,14 +85,20 @@ const FormView = () => {
         setErrors(newErrors0);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         
         if (!validate(event) || !/^[a-zA-Z\s]{4,50}$/.test(form.name) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) || !/^.{10,1000}$/.test(form.message)) {
             alert("Formulario inválido, corrige los errores antes de enviar.");
         } else {
-            alert("Formulario válido, enviar datos:", form);
-            // Aquí debo enviar los datos al email
+            try {
+                const response = await axios.post('http://localhost:3001/send-email', form);
+                console.log(response.data); 
+                alert("Formulario válido, enviar datos:");
+            } catch (error) {
+                console.error(error);
+                alert("Error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.");
+            }
         }
     };
     
