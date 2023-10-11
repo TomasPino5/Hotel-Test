@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const app = express();
-const { EMAIL, PASSWORD } = process.env;
 require('dotenv').config();
 
 app.use(bodyParser.json());
@@ -16,24 +15,26 @@ app.use((req, res, next) => {
 });
 
 app.post('/send-email', (req, res) => {
-  const { name, email, message } = req.body;
+  const { name, email, phone, message } = req.body;
 
   const transporter = nodemailer.createTransport({
-    // host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
     service: 'gmail',
     auth: {
-      user: `tomaspino.velez@gmail.com`,
-      pass: `8426 7814`
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
     }
   });
 
   const mailOptions = {
-    from: `tomaspino.velez@gmail.com`,
     to: 'tomaspino48@gmail.com',
     subject: 'Nuevo mensaje del formulario de contacto',
-    text: `Nombre: ${name}\nCorreo: ${email}\nMensaje: ${message}`
+    html:  
+      `
+      <p><b>Nombre:</b> ${name}</p>
+      <p><b>Correo:</b> ${email}</p>
+      ${phone !== '' ? `<p><b>Telefono:</b> ${phone}</p>` : '<p><b>El usuario no colocó el teléfono</b></p>'}
+      <p><b>Mensaje:</b> ${message}</p>
+      `
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

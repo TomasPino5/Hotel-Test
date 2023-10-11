@@ -20,7 +20,7 @@ const FormView = () => {
     })
 
     const handlePhoneChange = (value) => {
-        setForm({ ...form, [form.phone]: value });
+        setForm({ ...form, phone: value });
         console.log(form);
     };
 
@@ -94,7 +94,13 @@ const FormView = () => {
             try {
                 const response = await axios.post('http://localhost:3001/send-email', form);
                 console.log(response.data); 
-                alert("Formulario válido, enviar datos:");
+                alert("Formulario válido, datos enviados correctamente");
+                setForm({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    message: ''
+                })
             } catch (error) {
                 console.error(error);
                 alert("Error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.");
@@ -114,7 +120,8 @@ const FormView = () => {
                     value={form.name}
                     onChange={handleChange}
                     onBlur={validate}
-                    className={!errors.name ? styles.input : styles.inputError} 
+                    className={!errors.name ? styles.input : styles.inputError}
+                    autoFocus 
                 />
                 {errors.name && <span className={styles.error}>{errors.name}</span>}
 
@@ -137,17 +144,6 @@ const FormView = () => {
                     placeholder=""
                     name="phone"
                 />
-
-                {/* <input 
-                    type="text" 
-                    placeholder='Teléfono' 
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    onBlur={validate}
-                    className={!errors.phone ? styles.input : styles.inputError} 
-                />
-                {errors.phone && <span className={styles.error}>{errors.phone}</span>} */}
 
                 <textarea 
                     name="message" 
