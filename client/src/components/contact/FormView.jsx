@@ -3,6 +3,9 @@ import { useState } from 'react';
 import PhoneInput from 'react-phone-input-2'
 import './stylePhone.css'
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+import 'animate.css';
 
 const FormView = () => {
 
@@ -21,7 +24,6 @@ const FormView = () => {
 
     const handlePhoneChange = (value) => {
         setForm({ ...form, phone: value });
-        console.log(form);
     };
 
     const validate = (event) => {
@@ -81,7 +83,7 @@ const FormView = () => {
         } else if (name === "message" && /^.{10,1000}$/.test(value)) {
             newErrors0.message = "";
         }
-        console.log(form);
+
         setErrors(newErrors0);
     };
 
@@ -89,12 +91,27 @@ const FormView = () => {
         event.preventDefault();
         
         if (!validate(event) || !/^[a-zA-Z\s]{4,50}$/.test(form.name) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) || !/^.{10,1000}$/.test(form.message)) {
-            alert("Formulario inválido, corrige los errores antes de enviar.");
+            Swal.fire({
+                title: 'Formulario inválido, corrige los errores antes de enviar.',
+                // text: 'Este es un mensaje de alerta personalizado.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            });
         } else {
             try {
-                const response = await axios.post('http://localhost:3001/send-email', form);
-                console.log(response.data); 
-                alert("Formulario válido, datos enviados correctamente");
+                await axios.post('http://localhost:3001/send-email', form);
+                Swal.fire({
+                    title: 'Mensaje enviado correctamente',
+                    // text: 'Este es un mensaje de alerta personalizado.',
+                    icon: 'success', // Puedes cambiar el icono: 'success', 'error', 'warning', etc.
+                    confirmButtonText: 'Aceptar'
+                });
                 setForm({
                     name: '',
                     email: '',
@@ -102,8 +119,12 @@ const FormView = () => {
                     message: ''
                 })
             } catch (error) {
-                console.error(error);
-                alert("Error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.");
+                Swal.fire({
+                    title: 'Error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.',
+                    // text: 'Este es un mensaje de alerta personalizado.',
+                    icon: 'error', // Puedes cambiar el icono: 'success', 'error', 'warning', etc.
+                    confirmButtonText: 'Aceptar'
+                });
             }
         }
     };
