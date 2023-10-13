@@ -22,6 +22,8 @@ const FormView = () => {
         message: ""
     })
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const handlePhoneChange = (value) => {
         setForm({ ...form, phone: value });
     };
@@ -90,10 +92,12 @@ const FormView = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         
+        setIsLoading(true);
+        
         if (!validate(event) || !/^[a-zA-Z\s]{4,50}$/.test(form.name) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) || !/^.{10,1000}$/.test(form.message)) {
             Swal.fire({
-                title: 'Formulario inválido, corrige los errores antes de enviar.',
-                // text: 'Este es un mensaje de alerta personalizado.',
+                title: 'Formulario inválido.',
+                text: 'Corrige los errores antes de enviar.',
                 icon: 'error',
                 confirmButtonText: 'Aceptar',
                 showClass: {
@@ -103,15 +107,23 @@ const FormView = () => {
                     popup: 'animate__animated animate__fadeOutUp'
                 }
             });
+            setIsLoading(false);
         } else {
             try {
                 await axios.post('http://localhost:3001/send-email', form);
                 Swal.fire({
                     title: 'Mensaje enviado correctamente',
                     // text: 'Este es un mensaje de alerta personalizado.',
-                    icon: 'success', // Puedes cambiar el icono: 'success', 'error', 'warning', etc.
-                    confirmButtonText: 'Aceptar'
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
                 });
+                setIsLoading(false);
                 setForm({
                     name: '',
                     email: '',
@@ -120,11 +132,18 @@ const FormView = () => {
                 })
             } catch (error) {
                 Swal.fire({
-                    title: 'Error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.',
-                    // text: 'Este es un mensaje de alerta personalizado.',
-                    icon: 'error', // Puedes cambiar el icono: 'success', 'error', 'warning', etc.
-                    confirmButtonText: 'Aceptar'
+                    title: 'Error al enviar el formulario.',
+                    text: 'Por favor, inténtalo de nuevo más tarde.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
                 });
+                setIsLoading(false);
             }
         }
     };
@@ -178,9 +197,9 @@ const FormView = () => {
 
                 <button 
                     type='submit'
-                    className={styles.btn}
+                    className={isLoading ? styles.btnProgress : styles.btn}
                 >
-                    ENVIAR
+                    {isLoading ? 'ENVIANDO...' : 'ENVIAR'}
                 </button>
 
             </form>

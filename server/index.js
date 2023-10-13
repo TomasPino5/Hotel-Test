@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const app = express();
 require('dotenv').config();
+const { conn } = require('./src/db.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -48,6 +49,8 @@ app.post('/send-email', (req, res) => {
   });
 });
 
-app.listen(3001, () => {
-  console.log('Servidor backend iniciado en el puerto 3001');
+conn.sync({ force: false }).then(() => {
+  app.listen(3001, () => {
+    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  });
 });
