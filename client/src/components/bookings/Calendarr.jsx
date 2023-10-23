@@ -8,30 +8,43 @@ import { FaCalendarAlt } from 'react-icons/fa'
 
 const Calendarr = () => {
 
-    const [fechasSeleccionadas, setFechasSeleccionadas] = useState([new Date(), moment().add(1, 'days').toDate()]);
+    const [selectedDates, setSelectedDates] = useState([new Date(), moment().add(1, 'days').toDate()]);
 
-    const handleFechasSeleccionadas = (dates) => {
-        setFechasSeleccionadas(dates);
+    const [showCalendar, setShowCalendar] = useState(false)
+
+    const handleSelectedDates = (dates) => {
+        setSelectedDates(dates);
     };
+
+    const handleShowCalendar = () => {
+        setShowCalendar(true)
+    }
 
     return (
         <>  
             <div>
-                <div className={styles.calendarContainer}>
+                <div className={styles.calendarContainer} onClick={handleShowCalendar}>
                     <div className={styles.entry}>
-                        <FaCalendarAlt className={styles.CalendarIcon1}/>{moment(fechasSeleccionadas[0]).format('DD/MM/YYYY')}
+                        <p className={styles.calendarIcon1}>
+                            <FaCalendarAlt/>
+                        </p>
+                            {moment(selectedDates[0]).format('DD/MM/YYYY')}
                     </div>
                     <div className={styles.exit}>
-                        <FaCalendarAlt className={styles.CalendarIcon2}/>{moment(fechasSeleccionadas[1]).format('DD/MM/YYYY')}
+                        <p className={styles.calendarIcon2}>
+                            <FaCalendarAlt/>
+                        </p>
+                        {moment(selectedDates[1]).format('DD/MM/YYYY')}
                     </div>               
                 </div>
+                {showCalendar &&
                     <Calendar
-                        onChange={handleFechasSeleccionadas}
+                        onChange={handleSelectedDates}
                         selectRange
-                        // calendarType="ISO 8601"
                         minDate={new Date()}
-                        value={fechasSeleccionadas}
+                        value={selectedDates}
                     />
+                }
             </div>
         </>
     )

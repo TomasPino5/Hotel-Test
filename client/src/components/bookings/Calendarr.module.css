@@ -11,6 +11,7 @@
     width: 200px;
     margin-right: 50px;
     text-align: center;
+    cursor: pointer;
 }
 
 .exit {
@@ -19,16 +20,16 @@
     width: 200px;
     padding: 5px;
     text-align: center;
+    cursor: pointer;
 }
 
-.CalendarIcon1 {
+.calendarIcon1 {
     position: absolute;
-    margin-top: 3.5px;
-    left: 450px;
+    margin-top: 3px;
+    /* margin-right: 70px; */
 }
 
-.CalendarIcon2 {
+.calendarIcon2 {
     position: absolute;
-    margin-top: 3.5px;
-    left: 715px;
+    margin-top: 3px;
 }
