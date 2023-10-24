@@ -25,11 +25,16 @@
 
 .calendarIcon1 {
     position: absolute;
-    margin-top: 3px;
-    /* margin-right: 70px; */
+    margin: 3px 0 0 8px;
 }
 
 .calendarIcon2 {
     position: absolute;
-    margin-top: 3px;
+    margin: 3px 0 0 8px;
+}
+
+.calendarrContainer {
+    display: flex;
+    justify-content: center;
+    border: solid 1px red;
 }
