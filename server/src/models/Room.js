@@ -6,19 +6,39 @@ module.exports = (sequelize) => {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
+            // autoIncrement: true,
+            allowNull: false
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        description: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         roomNumber: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        type: {
+        // type: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
+        price: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
+        image: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        price: {
-            type: DataTypes.FLOAT,
+        people: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        available: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
     }, { timestamps: false });

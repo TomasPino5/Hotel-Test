@@ -1,11 +1,11 @@
 import styles from './Bookings.module.css'
-import Calendarr from './Calendarr';
+import CalendarComponent from './CalendarComponent';
 
 const Bookings = () => {
     return (
         <>
             <div className={styles.container}>
-                <Calendarr />
+                <CalendarComponent />
             </div>
         </>
     )
