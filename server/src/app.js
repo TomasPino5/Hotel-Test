@@ -1,42 +1,35 @@
-// const express = require('express');
-// const nodemailer = require('nodemailer');
-// const bodyParser = require('body-parser');
-// const { EMAIL, PASSWORD } = process.env;
-// require('dotenv').config();
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const routes = require('./routes/index');
 
-// const app = express();
-// app.use(bodyParser.json());
+require('./db.js');
 
-// const transporter = nodemailer.createTransport({
-//     service: 'Gmail',
-//     auth: {
-//         user: `${EMAIL}`,
-//         pass: `${PASSWORD}`
-//     }
-// });
+const app = express();
 
-// app.post('/send-email', (req, res) => {
-//     const { name, email, phone, message } = req.body;
+app.name = 'API';
 
-//     const mailOptions = {
-//         from: `${EMAIL}`,
-//         to: `tomaspino48@gmail.com`, 
-//         subject: `Contacto de Hotel Prueba de ${name}`,
-//         text: `
-//             Nombre: ${name}
-//             Email: ${email}
-//             Teléfono: ${phone}
-//             Mensaje: ${message}
-//         `
-//     };
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(cookieParser());
+app.use(morgan('dev'));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173'); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  next();
+});
 
-//     transporter.sendMail(mailOptions, (error) => {
-//         if (error) {
-//             // console.log(error);
-//             res.status(500).send('Error al enviar el correo electrónico');
-//         } else {
-//             // console.log('Email enviado: ' + info.response);
-//             res.status(200).send('Correo electrónico enviado con éxito');
-//         }
-//     });
-// });
+app.use('/', routes);
+
+// Error catching endware.
+app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+  const status = err.status || 500;
+  const message = err.message || err;
+  console.error(err);
+  res.status(status).send(message);
+});
+
+module.exports = app;
