@@ -151,7 +151,7 @@ const FormView = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className={styles.container}>
+            <form onSubmit={handleSubmit} className={isLoading ? styles.containerProgress : styles.container}>
 
                 <input 
                     type="text" 

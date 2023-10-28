@@ -1,4 +1,4 @@
-module.exports = rooms = [
+module.exports = roomsData = [
     {
         id: 1,
         name: 'habitacion1',
