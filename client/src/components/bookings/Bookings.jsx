@@ -8,25 +8,25 @@ const Bookings = () => {
     const [rooms, setRooms] = useState([]);
 
     useEffect(() => {
-        const getRooms = async () => {
+        const roomsData = async () => {
             try {
-                const response = await axios.get('https://localhost:3001/rooms');
+                const response = await axios.get('http://localhost:3001/rooms');
                 setRooms(response.data);
             } catch (error) {
                 console.error('Error al obtener datos de las habitaciones:', error);
             }
         };
-
-        getRooms();
+        roomsData();
     }, []);
 
     return (
         <>
             <div className={styles.container}>
                 <CalendarComponent />
-                <div>
+                <div className={styles.rooms}>
                     {rooms.map(room => (
-                        <div key={room.id}>
+                        <div key={room.id} className={styles.room}>
+                            <img src={room.image} alt={room.name} className={styles.img} />
                             <h3>{room.name}</h3>
                             <p>{room.description}</p>
                         </div>
