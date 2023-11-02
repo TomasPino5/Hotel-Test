@@ -1,7 +1,7 @@
 module.exports = roomsData = [
     {
-        name: 'habitacion1',
-        description: 'es una excelente habitacion',
+        name: 'Habitacion1',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         roomNumber: 1,
         price: 50000,
         image: 'https://i.ibb.co/GvhVfGQ/rooms1.jpg',
@@ -9,8 +9,8 @@ module.exports = roomsData = [
         available: 3,
     },
     {
-        name: 'habitacion2',
-        description: 'es una buena habitacion',
+        name: 'Habitacion2',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         roomNumber: 2,
         price: 80000,
         image: 'https://i.ibb.co/PFBVvHQ/rooms4.jpg',
@@ -18,21 +18,21 @@ module.exports = roomsData = [
         available: 1
     },
     {
-        name: 'habitacion3',
-        description: 'es una genial habitacion',
+        name: 'Habitacion3',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         roomNumber: 3,
         price: 40000,
         image: 'https://i.ibb.co/BBgdRdG/rooms7.jpg',
-        people: 4,
+        people: 3,
         available: 1
     },
     {
-        name: 'habitacion4',
-        description: 'es una xd habitacion',
+        name: 'Habitacion4',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         roomNumber: 4,
         price: 10000,
         image: 'https://i.ibb.co/c8QZr9Y/rooms10.webp',
-        people: 4,
+        people: 1,
         available: 1
     }
 ]

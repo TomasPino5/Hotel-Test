@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './Bookings.module.css'
 import CalendarComponent from './CalendarComponent';
+import { FaUser } from 'react-icons/fa';
 
 const Bookings = () => {
 
@@ -27,8 +28,20 @@ const Bookings = () => {
                     {rooms.map(room => (
                         <div key={room.id} className={styles.room}>
                             <img src={room.image} alt={room.name} className={styles.img} />
-                            <h3>{room.name}</h3>
-                            <p>{room.description}</p>
+                            <div className={styles.descriptionContainer}>
+                                <h3 className={styles.roomTitle}>{room.name}</h3>
+                                <p className={styles.roomDescription}>
+                                    {room.description}<br/>
+                                    Click aquí para mas informacion.
+                                </p>
+                                <p className={styles.people}>Capacidad: {room.people} {room.people > 1 ?'personas ' : 'persona '} 
+                                    {Array.from({ length: room.people }, (_, index) => (
+                                        <FaUser key={index} className={styles.users} />
+                                    ))}
+                                </p>
+                                <p className={styles.available}>{room.available} {room.available === 1 ?'Disponible' : 'Disponibles'}</p>
+                                <button className={styles.btn}>RESERVAR</button>
+                            </div>
                         </div>
                     ))}
                 </div>
