@@ -8,6 +8,7 @@ import Bookings from "./components/bookings/Bookings";
 import Nav from "./components/nav/Nav";
 import Footer from "./components/footer/Footer";
 import Error from "./components/error/error";
+import Pay from "./components/bookings/pay/Pay"
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/ubicacion" element={<Location />} />
         <Route path="/contacto" element={<Contact />} />
         <Route path="/reservas" element={<Bookings />} />
+        <Route path="/reservas/pagar" element={<Pay />}/>
         <Route path="*" element={<Error />} />
       </Routes>
       {pathname !== "*" && <Footer />}

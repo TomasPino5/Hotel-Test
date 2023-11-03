@@ -1,5 +1,6 @@
 module.exports = roomsData = [
     {
+        id: 1,
         name: 'Habitacion1',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         roomNumber: 1,
@@ -9,6 +10,7 @@ module.exports = roomsData = [
         available: 3,
     },
     {
+        id: 2,
         name: 'Habitacion2',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         roomNumber: 2,
@@ -18,6 +20,7 @@ module.exports = roomsData = [
         available: 1
     },
     {
+        id: 3,
         name: 'Habitacion3',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         roomNumber: 3,
@@ -27,6 +30,7 @@ module.exports = roomsData = [
         available: 1
     },
     {
+        id: 4,
         name: 'Habitacion4',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         roomNumber: 4,

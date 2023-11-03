@@ -4,6 +4,14 @@
     flex-direction: column;
 }
 
+.rooms {
+    margin-top: 50px;
+}
+
+.hr {
+    margin: 10px 0 30px 0;
+}
+
 .room {
     display: flex;
     margin-bottom: 60px;
@@ -40,15 +48,17 @@
 
 .people {
     margin-top: 25px;
+    font-size: 14px;
 }
 
 .available {
     margin-top: 15px;
+    font-size: 14px;
 }
 
 .btn {
     height: 50px;
-    width: 180px;
+    width: 160px;
     font-size: 20px;
     background-color: #fff;
     border: 1px solid black;
@@ -63,5 +73,15 @@
 }
 
 .users {
-    font-size: 12px;
+    font-size: 10px;
+    margin-right: 2px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.btnLink {
+    text-decoration: none;
+    color: inherit;
 }
