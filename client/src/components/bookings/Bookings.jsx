@@ -49,7 +49,11 @@ const Bookings = () => {
                                 </p>
                                 <p className={styles.available}>{room.available} {room.available === 1 ?'Disponible' : 'Disponibles'} | {room.price.toLocaleString('es-ES')} x noche</p>
                                 <button className={styles.btn}>
-                                    <Link to='/reservas/pagar' className={styles.btnLink}>
+                                    <Link 
+                                        to='/reservas/pagar' 
+                                        state={{ room: room }}
+                                        className={styles.btnLink}
+                                    >
                                         RESERVAR
                                     </Link>
                                 </button>

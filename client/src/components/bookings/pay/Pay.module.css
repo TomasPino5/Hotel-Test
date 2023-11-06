@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.hr {
+    width: 1000px;
+}
+
+.room {
+    display: flex;
+    width: 1000px;
+    border: 1px solid gray;
+    margin-top: 30px;
+}
+
+.roomDetail {
+    display: flex;
+    flex-direction: column;
+}
+
+.img {
+    height: 400px;
+    max-width: 600px;
+    border-right: 1px solid black;
+}
+
+.buy {
+    border: 1px solid black;
+    border-radius: 8px;
+}
