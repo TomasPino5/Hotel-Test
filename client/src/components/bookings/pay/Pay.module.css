@@ -42,22 +42,38 @@
 }
 
 .buy {
-    margin-top: 60px;
+    margin: 60px 0 60px 0;
     border: 0.5px solid black;
     border-radius: 5px;
-    height: 200px;
+    height: 300px;
     width: 600px;
+}
+
+.buyTitle {
+    font-size: 40px;
+}
+
+.buyDescription {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.total {
+    margin-top: 40px;
+    font-size: 20px;
 }
 
 .pay {
     background-color: #007bff;
     border: 1px solid;
-    border-radius: 5px;
+    border-radius: 4px;
     height: 40px;
     width: 550px;
     cursor: pointer;
     transition: all 0.5s;
     color: white;
+    margin-top: 20px;
+    font-size: 16px;
 }
 
 .pay:hover {

@@ -37,9 +37,9 @@ const Pay = () => {
                     </div>
                 </div>
                 <div className={styles.buy}>
-                    <h2>RESUMEN DE COMPRA</h2>
-                    <p>{name} - 1 noche - ${price.toLocaleString('es-ES')}</p>
-                    <p>TOTAL: $</p>
+                    <h2 className={styles.buyTitle}>RESUMEN DE COMPRA</h2>
+                    <p className={styles.buyDescription}>{name} - ${price.toLocaleString('es-ES')} - 1 noche</p>
+                    <p className={styles.total}>TOTAL: $</p>
                     <button className={styles.pay}>PAGAR</button>
                 </div>
             </div>
