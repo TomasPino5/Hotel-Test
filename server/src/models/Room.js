@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
         },
         name: {
             type: DataTypes.STRING,
@@ -21,9 +21,9 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         // type: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        // },
+            //     type: DataTypes.STRING,
+            //     allowNull: false
+            // },
         price: {
             type: DataTypes.FLOAT,
             allowNull: false
@@ -40,5 +40,13 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        descriptionDetail: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        beds: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
     }, { timestamps: false });
 };

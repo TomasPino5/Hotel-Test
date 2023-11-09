@@ -6,7 +6,7 @@ const Pay = () => {
     const location = useLocation();
     const { state } = location
 
-    const { name, descriptionDetail, people, price, image } = state.room;
+    const { name, beds, descriptionDetail, people, price, image } = state.room;
 
     return (
         <>
@@ -19,14 +19,28 @@ const Pay = () => {
                     <img src={image} alt={name} className={styles.img} />
                     <div className={styles.roomDetail}>
                         <h1>{name}</h1>
-                        <p>{descriptionDetail}</p>
-                        <p>Capacidad: {people} {people > 1 ? 'personas' : 'persona'}</p>
+                        <p className={styles.descriptionDetail}>
+                            {descriptionDetail}
+                            <p className={styles.spec}>
+                                Wifi: Si
+                            </p>
+                            <p className={styles.spec}>
+                                TV: Si
+                            </p>
+                            <p className={styles.spec}>
+                                Capacidad: {people} {people > 1 ? 'personas' : 'persona'}
+                            </p>
+                            <p className={styles.spec}>
+                                Camas: {beds}
+                            </p>
+                        </p>
                     </div>
                 </div>
                 <div className={styles.buy}>
                     <h2>RESUMEN DE COMPRA</h2>
                     <p>{name} - 1 noche - ${price.toLocaleString('es-ES')}</p>
                     <p>TOTAL: $</p>
+                    <button className={styles.pay}>PAGAR</button>
                 </div>
             </div>
         </>
