@@ -1,7 +1,16 @@
 import { useLocation } from 'react-router-dom';
 import styles from './Pay.module.css'
+import { useGlobalState } from '../../../globalState';
+import moment from 'moment';
 
 const Pay = () => {
+
+    const { selectedDates } = useGlobalState();
+
+    const startDate = moment(selectedDates[0]);
+    const endDate = moment(selectedDates[1]);
+    const duration = moment.duration(endDate.diff(startDate));
+    const nigths = Math.floor(duration.asDays());
 
     const location = useLocation();
     const { state } = location
@@ -38,7 +47,7 @@ const Pay = () => {
                 </div>
                 <div className={styles.buy}>
                     <h2 className={styles.buyTitle}>RESUMEN DE COMPRA</h2>
-                    <p className={styles.buyDescription}>{name} - ${price.toLocaleString('es-ES')} - 1 noche</p>
+                    <p className={styles.buyDescription}>{name} - ${price.toLocaleString('es-ES')} - {nigths} {nigths > 1 ? 'noches' : 'noche'}</p>
                     <p className={styles.total}>TOTAL: $</p>
                     <button className={styles.pay}>PAGAR</button>
                 </div>

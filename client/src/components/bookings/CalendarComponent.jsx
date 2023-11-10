@@ -5,10 +5,11 @@ import moment from 'moment';
 import 'moment/locale/es';
 import styles from './CalendarComponent.module.css'
 import { FaCalendarAlt } from 'react-icons/fa'
+import { useGlobalState } from '../../globalState';
 
 const CalendarComponent = () => {
     
-    const [selectedDates, setSelectedDates] = useState([new Date(), moment().add(1, 'days').toDate()]);
+    const { selectedDates, setGlobalSelectedDates } = useGlobalState();
 
     const [showCalendar, setShowCalendar] = useState(false)
 
@@ -19,7 +20,7 @@ const CalendarComponent = () => {
     const exitRef = useRef(null);
 
     const handleSelectedDates = (dates) => {
-        setSelectedDates(dates);
+        setGlobalSelectedDates(dates);
         setShowCalendar(false);
     };
 
